@@ -1,0 +1,143 @@
+<!-- **************************ngIf and ngTemplate example*************************************** -->
+
+<!-- <div *ngIf = "names.length > 0; then name else nonames"></div>
+
+<ng-template #name>
+    list of names {{names}}
+</ng-template>
+<ng-template #nonames>
+    no names sorry
+</ng-template> -->
+
+<!-- *******************************hidden attribute of angular********************************** -->
+
+<!-- <div [hidden] = "names.length == 0">
+    names are {{names}}
+</div>
+<div [hidden] = "names.length > 0">
+    no names
+</div> -->
+
+<!-- **********************************ng-switchCase******************************* -->
+<!-- <ul class="nav nav-pills">
+    <li [class.active]="viewProfile.name"><a (click)="viewProfile = 'name'">name</a></li>
+    <li [class.active]="viewProfile.profession"><a (click)="viewProfile = 'profession'">profession</a></li>
+</ul>
+
+<div [ngSwitch]="viewProfile">
+    <div *ngSwitchCase = "'name'">suyash</div>
+    <div *ngSwitchCase = "'profession'">front end developer</div>
+    <div *ngSwitchDefault></div>
+</div> -->
+
+<!-- ***************************************ngFor with add and remove list element fronm list******************************* -->
+
+<!-- <div *ngFor="let course of courses">
+    {{course.name}}
+    <button class="btn btn-danger btn-md" (click)="removeCourse(course)">Remove course</button>
+</div>
+
+<button class="btn btn-primary btn-md" (click) = "addCourse()">add course</button> -->
+
+<!-- <div class="container">
+    <form #loginform="ngForm" (ngSubmit)="submit(loginform)">
+        <div class="form-group">
+            <label>Email</label>
+            <input ngModel #email="ngModel" type="text" id="email" name="email" class="form-control"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors.required">please enter email</div>
+                <div *ngIf="email.errors.pattern">please enter proper email</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input ngModel #password="ngModel" type="password" id="password" name="password" minlength="5"
+                maxlength="16" class="form-control" required autocomplete="off">
+            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                <div *ngIf="password.errors.required">please enter password</div>
+                <div *ngIf="password.errors.minlength">Atleast 5 characters</div>
+                <div *ngIf="password.errors.maxlength">only 16 characters available</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+                <label>Confirm Password</label>
+                <input ngModel #confpassword="ngModel" type="password" id="confpassword" name="confpassword" class="form-control" required autocomplete="off">
+                <div class="alert alert-danger" *ngIf="confpassword.touched && !confpassword.valid">
+                    <div *ngIf="confpassword.errors.required">please confirm your password</div>
+                    <div *ngIf="confpassword.errors.mustMatch">password is not matching</div>
+                </div>
+            </div>
+        <button type="submit" class="btn btn-success" [disabled]="!loginform.valid" routerLink="/home">Submit</button>
+    </form>
+</div> -->
+
+<div class="container">
+  <div class="loginBox">
+    <h1 class="text-center">Login</h1>
+    <form [formGroup]="loginform">
+      <div class="errorMessage" *ngIf="loginform.errors">
+        Please fill all input fields
+      </div>
+      <div class="form-group">
+        <label class="inputLabel" for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          formControlName="uname"
+        />
+        <div
+          class="errorMessage"
+          *ngIf="formcontrols.uname.touched && formcontrols.uname.invalid"
+        >
+          <div *ngIf="formcontrols.uname.errors.required">
+            **Please enter Username
+          </div>
+          <div *ngIf="formcontrols.uname.errors.minlength">
+            **Username should be of atleast 5 characters
+          </div>
+          <div *ngIf="formcontrols.uname.errors.uname">
+            **Please enter proper Username
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 10%;">
+        <label class="inputLabel" for="password">Password</label>
+        <input
+          type="{{ type }}"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <i class="material-icons eye" (click)="toggleTextType()"
+          >remove_red_eye</i
+        >
+        <div
+          class="errorMessage"
+          *ngIf="formcontrols.password.touched && formcontrols.password.invalid"
+        >
+          <div *ngIf="formcontrols.password.errors.required">
+            **Please enter passowrd
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-12 col-md-12 col-12 text-center">
+          <button class="btn btn-block loginBtn" (click)="submit()">
+            Login
+          </button>
+          <div style="margin: 10px 0px">
+            <a routerLink="/signup">Don't have an account?</a>
+          </div>
+          <div>
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

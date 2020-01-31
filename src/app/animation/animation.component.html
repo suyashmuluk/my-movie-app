@@ -1,0 +1,11 @@
+<div class="container">
+  <button class="btn btn-mf btn-primary" (click)="openBox()">
+    Click Me
+  </button>
+
+  <div class="box mt-5" [@fade_in_out]="isopen ? 'open' : 'close'">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quae quia
+    exercitationem quod id at architecto soluta nobis, atque natus aut provident
+    odio in iusto impedit voluptas quas, vero maxime?
+  </div>
+</div>

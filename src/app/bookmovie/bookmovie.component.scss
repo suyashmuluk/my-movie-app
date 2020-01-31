@@ -1,0 +1,181 @@
+.movieContainer {
+  margin-top: 2%;
+}
+
+.imageheader {
+  width: 100%;
+  // content: url("/assets/Images/shawshankPage.jpeg");
+}
+
+.timeSelect {
+  //  background: linear-gradient(321deg, #22c1c3 0%, #d4182a 81%);
+  color: #fff;
+  font-weight: bold;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+}
+
+.timeUnselect {
+  background-color: #000;
+  color: #fff;
+}
+.movieTitle {
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 2%;
+  font-size: 30px;
+}
+
+.summary {
+  margin-top: 1%;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.ratings {
+  margin-top: 2%;
+}
+
+.subtitleText {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ratingStars {
+  margin-left: 1%;
+  position: relative;
+  top: 5px;
+}
+
+.showTimings {
+  margin-top: 2%;
+}
+
+.timingButtongroup {
+  margin-left: 1%;
+}
+
+.timingButton {
+  padding: 3px;
+  margin: 0 5px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  outline: none;
+}
+
+.timingButton:hover {
+  cursor: pointer;
+}
+
+.timingButton:active {
+  box-shadow: 2px 1px 5px #8f8f8f;
+}
+
+.bookNowbuttonDiv {
+  margin: 4% 0;
+  font-size: 18px;
+}
+
+.bookNowbutton {
+  padding: 1% 2%;
+  width: 20%;
+  color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #8f8f8f;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+}
+
+.bookNowbutton:hover {
+  box-shadow: 1px 2px 10px #666666;
+}
+
+.bookNowbutton:focus {
+  outline: none !important;
+  border-radius: 1px solid #000;
+}
+
+.personsNumber {
+  margin-top: 2%;
+}
+
+.inc-decButton {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 9px 0;
+  background: #eee;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+  background: linear-gradient(51deg, #000000 -12%, #04619f 50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+#increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(208deg, #000000 -12%, #04619f 50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+.inc-decInput {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0 4px;
+  width: 35px;
+  height: 40px;
+  background-color: #f5feff;
+}
+
+.cashSection{
+  margin-top: 2%;
+}
+
+.cashDisplay{
+  margin-left: 1%;
+  height: 25px;
+  width: auto;
+  padding: 10px;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+  .movieTitle {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+  .summary {
+    font-size: 13px;
+  }
+  .subtitleText {
+    font-size: 13px;
+  }
+  .bookNowbutton {
+    width: auto;
+  }
+}

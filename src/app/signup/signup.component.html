@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="loginBox">
+    <h1 class="text-center">Signin</h1>
+    <form [formGroup]="signinForm">
+      <div class="errorMessage" *ngIf="signinForm.errors">
+        Please fill all input fields
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" formControlName="username" />
+        <div
+          class="errorMessage"
+          *ngIf="f.username.touched && f.username.invalid"
+        >
+          <div *ngIf="f.username.errors.required">Please enter username</div>
+          <div *ngIf="f.username.errors.minlength">
+            Username should be atleast of 5 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          [type]="show ? 'text' : 'password' "
+          class="form-control"
+          formControlName="password"
+        />
+        <i class="material-icons eye" (click)="toggleText('password')"
+          >remove_red_eye</i
+        >
+        <div
+          class="errorMessage"
+          *ngIf="f.password.touched && f.password.invalid"
+        >
+          <div *ngIf="f.password.errors.required">Please enter password</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input
+        [type]="showConfPass ? 'text' : 'password' "
+          class="form-control"
+          formControlName="confirmPassword"
+        />
+        <i class="material-icons eye" (click)="toggleText('confpassword')"
+          >remove_red_eye</i
+        >
+        <div
+          class="errorMessage"
+          *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid"
+        >
+          <div *ngIf="f.confirmPassword.errors.required">
+            Please confirm your password
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-12 col-md-12 col-12 text-center">
+          <button class="btn btn-block loginBtn" (click)="submitForm()">
+            Signin
+          </button>
+          <div style="margin: 10px 0px">
+            <a routerLink="/login">Already have an account?</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

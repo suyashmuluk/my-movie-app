@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h1>WELCOME {{username | uppercase}}</h1>
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-4 col-12  mb-5" *ngFor = "let movie of movies">
+            <div class="card bg-dark text-white">
+                <img class="card-img-top image" [ngClass]="movie.id">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.name}}</h5>
+                    <button class="bookNowbutton" (click)="bookMovie(movie)">Book Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+body {
+  background-color: #2b2b2b !important;
+}
+.card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 1);
+}
+
+.image {
+  filter: grayscale(80%);
+}
+
+.card:hover .image {
+  filter: grayscale(0%);
+}
+
+.card-title {
+  font-weight: 500;
+}
+.shawshank_redemption {
+  content: url("/assets/Images/movie1.jpg");
+  height: 452px;
+}
+
+.batman_superman {
+  content: url("/assets/Images/batman.jpeg");
+  height: 452px;
+}
+
+.avengers {
+  content: url("/assets/Images/avengers.jpeg");
+  height: 452px;
+}
+
+.harrypotter {
+  content: url("/assets/Images/harryPotter.jpeg");
+  height: 452px;
+}
+
+.aquaman {
+  content: url("/assets/Images/aquaman.jpeg");
+  height: 452px;
+}
+
+.bookNowbutton {
+  padding: 3% 2%;
+  width: 50%;
+  font-size: 18px;
+  color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  font-weight: 500;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #8f8f8f;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+}
+
+.bookNowbutton:hover {
+  box-shadow: 1px 2px 10px #666666;
+}
+
+.bookNowbutton:focus {
+  outline: none !important;
+  border-radius: 1px solid #000;
+}

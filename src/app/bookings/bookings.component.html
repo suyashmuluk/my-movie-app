@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="bookingText">
+    Your Bookings
+  </div>
+  <div class="back">
+    <span routerLink="/home" class="backText">Back to Home page</span>
+  </div>
+  <div class="mobileView">
+    <table class="userInfo">
+      <tr>
+        <td class="tableHeader">Movie Name</td>
+        <td class="tableHeader">Timing</td>
+        <td class="tableHeader">Persons</td>
+        <td class="tableHeader">Rupees</td>
+      </tr>
+      <tr>
+        <td class="userData">{{name}}</td>
+        <td class="userData">{{timing}}</td>
+        <td class="userData">{{persons}}</td>
+        <td class="userData">{{rupee}} Rs</td>
+      </tr>
+    </table>
+  </div>
+</div>

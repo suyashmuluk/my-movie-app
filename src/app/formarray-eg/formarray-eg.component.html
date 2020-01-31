@@ -1,0 +1,21 @@
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-12">
+                <input type="text" class="form-control" #topic>
+                <p style="margin-top: 5%;">List:</p>
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let topic of topics.controls" @fade_in_out>
+                        {{topic.value}}
+                        <span (click)="removeTopic(topic)" class="deleteIconSpan">
+                            <i class="material-icons deleteIcon">delete</i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <button class="btn btn-success" (click)="addTopic(topic)">Add Name</button>
+            </div>
+        </div>
+    </form>
+</div>

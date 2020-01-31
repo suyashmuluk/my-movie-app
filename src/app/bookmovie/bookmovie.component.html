@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="movieContainer">
+    <div class="imageheader" [ngStyle]="{'content': 'url(' + movieImage + ')'}"></div>
+    <h4 class="movieTitle">{{movieName | uppercase}}</h4>
+    <div class="summary">
+      The Shawshank Redemption is a 1994 American drama film written and directed by
+      Frank Darabont, based on the 1982 Stephen King novella Rita Hayworth and Shawshank Redemption.
+    </div>
+    <div class="ratings">
+      <span class="subtitleText">Ratings :</span>
+      <span class="ratingStars">
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star</i>
+        <i class="material-icons">star_half</i>
+      </span>
+    </div>
+    <div class="showTimings">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-12">
+          <span class="subtitleText">Timings :</span>
+          <span class="timingButtongroup">
+            <span *ngFor="let timing of timings">
+              <span class="timingButton" [ngClass]="timeSelected === timing ? 'timeSelect' : 'timeUnselect' "
+                (click)="timeselect(timing)">{{timing}}</span>
+            </span>
+
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="personsNumber">
+      <span class="subtitleText">Persons :</span>
+      <span style="margin-left: 1%;">
+        <div class="inc-decButton" id="decrease" (click)="changeCount('-')">
+          <i class="material-icons">remove</i>
+        </div>
+        <input type="text" class="inc-decInput" [value]="persons" disabled />
+        <div class="inc-decButton" id="increase" (click)="changeCount('+')">
+          <i class="material-icons">add</i>
+        </div>
+      </span>
+    </div>
+    <div class="cashSection">
+      <span class="subtitleText">Rupees :</span>
+      <span class="cashDisplay">{{rupees}} Rs</span>
+    </div>
+    <div class="bookNowbuttonDiv text-center">
+      <button class="bookNowbutton" (click)="bookMovie('value')">Book Now</button>
+    </div>
+  </div>
+</div>
