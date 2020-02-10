@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Route } from '@angular/compiler/src/core';
+import { MustMatch } from '../password/must-match.validator';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +23,9 @@ export class SignupComponent implements OnInit {
     this.signinForm = this.formbuilder.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+    }, {
+      validators: MustMatch('password', 'confirmPassword'),
     });
   }
 

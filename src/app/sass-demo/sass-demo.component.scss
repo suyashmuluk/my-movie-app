@@ -12,8 +12,7 @@ $alignment: (
 );
 
 @mixin commonstyle() {
-  height: 300px;
-  width: 100%;
+  width: 100% - 40%;
   display: flex;
   margin: 10px auto;
 }
@@ -42,6 +41,7 @@ $alignment: (
     @extend .bg__para;
   }
 }
+
 
 // * {box-sizing: border-box;}
 

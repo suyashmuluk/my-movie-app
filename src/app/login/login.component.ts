@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import sha1 from 'sha1';
+// import sha1 from 'sha1';
 
 
 
@@ -64,12 +64,13 @@ export class LoginComponent implements OnInit {
         isInvalid: true
       });
     } else {
-      this.router.navigate(['home'], {queryParams:
-         {
-           username: this.loginform.value.uname,
-           password: sha1(this.loginform.value.password)
-          }
+      this.router.navigate(['home'], {
+        queryParams:
+        {
+          username: this.loginform.value.uname,
+          // password: sha1(this.loginform.value.password)
         }
+      }
       );
     }
   }

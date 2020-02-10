@@ -15,7 +15,7 @@
         <td class="tableHeader">Rupees</td>
       </tr>
       <tr>
-        <td class="userData">{{name}}</td>
+        <td class="userData"><div [matTooltip]="name">{{name | slice:0:15}}</div></td>
         <td class="userData">{{timing}}</td>
         <td class="userData">{{persons}}</td>
         <td class="userData">{{rupee}} Rs</td>

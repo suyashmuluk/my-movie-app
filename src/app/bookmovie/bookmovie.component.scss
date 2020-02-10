@@ -50,10 +50,12 @@
 
 .showTimings {
   margin-top: 2%;
+  display: flex;
 }
 
 .timingButtongroup {
   margin-left: 1%;
+  display: inline-flex;
 }
 
 .timingButton {
@@ -150,14 +152,14 @@
 }
 
 .cashSection{
-  margin-top: 2%;
+  margin-top: 5%;
+  display: flex;
 }
 
 .cashDisplay{
   margin-left: 1%;
-  height: 25px;
   width: auto;
-  padding: 10px;
+  padding: 5px 10px;
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
   color: #fff;
@@ -177,5 +179,9 @@
   }
   .bookNowbutton {
     width: auto;
+    font-size: 20px;
+  }
+  .timingButtongroup{
+    display: block;
   }
 }

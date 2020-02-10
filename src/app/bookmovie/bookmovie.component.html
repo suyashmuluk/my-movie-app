@@ -18,18 +18,16 @@
       </span>
     </div>
     <div class="showTimings">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-12">
-          <span class="subtitleText">Timings :</span>
-          <span class="timingButtongroup">
-            <span *ngFor="let timing of timings">
-              <span class="timingButton" [ngClass]="timeSelected === timing ? 'timeSelect' : 'timeUnselect' "
-                (click)="timeselect(timing)">{{timing}}</span>
-            </span>
-
-          </span>
+      <div class="subtitleText">Timings :</div>
+      <div class="timingButtongroup">
+        <div *ngFor="let timing of timings">
+          <div class="timingButton" [ngClass]="timeSelected === timing ? 'timeSelect' : 'timeUnselect' "
+            (click)="timeselect(timing)">
+            {{timing}}
+          </div>
         </div>
       </div>
+
     </div>
     <div class="personsNumber">
       <span class="subtitleText">Persons :</span>
@@ -44,8 +42,8 @@
       </span>
     </div>
     <div class="cashSection">
-      <span class="subtitleText">Rupees :</span>
-      <span class="cashDisplay">{{rupees}} Rs</span>
+      <div class="subtitleText">Rupees :</div>
+      <div class="cashDisplay">{{rupees}} Rs</div>
     </div>
     <div class="bookNowbuttonDiv text-center">
       <button class="bookNowbutton" (click)="bookMovie('value')">Book Now</button>

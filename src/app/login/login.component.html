@@ -76,23 +76,20 @@
 
 <div class="container">
   <div class="loginBox">
-    <h1 class="text-center">Login</h1>
+    <!-- <h1 class="loginBox__title">Login</h1> -->
+    <div class="loginBox__avatar">
+      <i class="material-icons avatar">
+        person_outline
+      </i>
+    </div>
     <form [formGroup]="loginform">
-      <div class="errorMessage" *ngIf="loginform.errors">
+      <div class="loginBox__error" *ngIf="loginform.errors">
         Please fill all input fields
       </div>
       <div class="form-group">
-        <label class="inputLabel" for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          class="form-control"
-          formControlName="uname"
-        />
-        <div
-          class="errorMessage"
-          *ngIf="formcontrols.uname.touched && formcontrols.uname.invalid"
-        >
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control" formControlName="uname" />
+        <div class="loginBox__error" *ngIf="formcontrols.uname.touched && formcontrols.uname.invalid">
           <div *ngIf="formcontrols.uname.errors.required">
             **Please enter Username
           </div>
@@ -106,20 +103,10 @@
       </div>
 
       <div class="form-group" style="margin-top: 10%;">
-        <label class="inputLabel" for="password">Password</label>
-        <input
-          type="{{ type }}"
-          id="password"
-          class="form-control"
-          formControlName="password"
-        />
-        <i class="material-icons eye" (click)="toggleTextType()"
-          >remove_red_eye</i
-        >
-        <div
-          class="errorMessage"
-          *ngIf="formcontrols.password.touched && formcontrols.password.invalid"
-        >
+        <label for="password">Password</label>
+        <input type="{{ type }}" id="password" class="form-control" formControlName="password" />
+        <i class="material-icons eye" (click)="toggleTextType()">remove_red_eye</i>
+        <div class="loginBox__error" *ngIf="formcontrols.password.touched && formcontrols.password.invalid">
           <div *ngIf="formcontrols.password.errors.required">
             **Please enter passowrd
           </div>

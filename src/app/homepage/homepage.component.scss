@@ -1,21 +1,60 @@
 body {
   background-color: #2b2b2b !important;
 }
-.card {
+
+.username{
+  font-size: 30px;
+}
+.movie__card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 1);
+  color: #e2e6f2;
+  background-color: #4d5b82;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &-img-top {
+    filter: grayscale(80%);
+    width: 100%;
+  }
+
+  &-body {
+    padding: 15px;
+    background-color: #34495e;
+    color: #dfe6e9;
+
+    &-title {
+      font-weight: bold;
+      letter-spacing: 1.2px;
+    }
+
+    &-button {
+      padding: 3% 2%;
+      width: 50%;
+      font-size: 18px;
+      color: #e5e5e5;
+      border: 1px solid #e5e5e5;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px #8f8f8f;
+      background-color: #000000;
+      background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+
+      &:hover {
+        box-shadow: 1px 2px 10px #666666;
+      }
+
+      &:focus {
+        outline: none !important;
+        border-radius: 1px solid #000;
+      }
+    }
+  }
 }
 
-.image {
-  filter: grayscale(80%);
-}
-
-.card:hover .image {
+.movie__card:hover .movie__card-img-top {
   filter: grayscale(0%);
 }
 
-.card-title {
-  font-weight: 500;
-}
 .shawshank_redemption {
   content: url("/assets/Images/movie1.jpg");
   height: 452px;
@@ -39,26 +78,4 @@ body {
 .aquaman {
   content: url("/assets/Images/aquaman.jpeg");
   height: 452px;
-}
-
-.bookNowbutton {
-  padding: 3% 2%;
-  width: 50%;
-  font-size: 18px;
-  color: #e5e5e5;
-  border: 1px solid #e5e5e5;
-  font-weight: 500;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px #8f8f8f;
-  background-color: #000000;
-  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
-}
-
-.bookNowbutton:hover {
-  box-shadow: 1px 2px 10px #666666;
-}
-
-.bookNowbutton:focus {
-  outline: none !important;
-  border-radius: 1px solid #000;
 }

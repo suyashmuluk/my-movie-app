@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import {ImageZoomModule} from 'angular2-image-zoom';
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
@@ -24,7 +23,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../environments/environment';
 import { SassDemoComponent } from './sass-demo/sass-demo.component';
-import { NgxImageZoomModule } from 'ngx-image-zoom';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 @NgModule({
@@ -53,8 +53,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    ImageZoomModule,
-    NgxImageZoomModule.forRoot()
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
