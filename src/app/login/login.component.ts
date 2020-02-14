@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
         isInvalid: true
       });
     } else {
+      console.log("i am in");
       this.router.navigate(['home'], {
         queryParams:
         {
@@ -71,7 +72,7 @@ export class LoginComponent implements OnInit {
           // password: sha1(this.loginform.value.password)
         }
       }
-      );
+      )
     }
   }
 }

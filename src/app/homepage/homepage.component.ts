@@ -34,14 +34,16 @@ export class HomepageComponent implements OnInit {
     timings: ['12.00PM', '14.00PM'],
     image: '/assets/Images/aquamanPage.jpeg'
   }]
-  username: any;
+  username =  '';
 
   constructor(private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+    this.username = this.route.snapshot.queryParamMap.get('username');
+
+
+    }
 
   ngOnInit() {
-    this.username = this.route.snapshot.queryParamMap.get('username');
-    console.log(this.username);
   }
 
 

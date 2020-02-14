@@ -1,16 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css?family=Gelasio&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Gelasio&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Neuton&display=swap");
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: "Gelasio", serif;
-  color: #fff;
-  background: #000000;
-  background: -webkit-linear-gradient(to left, #708090,#353C51);
-  background: linear-gradient(to left, #708090,#353C51);
+  // font-family: "Gelasio", serif;
+  font-family: "Neuton", serif;
+  background-color: #c6ffff;
+  // color: #fff;
+  // background: #000000;
+  // background: -webkit-linear-gradient(to left, #708090,#353C51);
+  // background: linear-gradient(to left, #708090,#353C51);
 }
 
 router-outlet ~ * {
@@ -20,7 +23,6 @@ router-outlet ~ * {
 }
 
 ::-moz-selection {
-  /* Code for Firefox */
   color: #fff;
   background: lightblue;
 }

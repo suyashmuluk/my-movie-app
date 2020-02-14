@@ -1,10 +1,15 @@
-<app-navbar></app-navbar>
 <div class="container">
-  <div class="bookingText">
-    Your Bookings
-  </div>
-  <div class="back">
-    <span routerLink="/home" class="backText">Back to Home page</span>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-6">
+      <div class="bookingText">
+        Your Bookings
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-6">
+      <div class="back">
+        <span routerLink="/home" class="backText">Back to Home page</span>
+      </div>
+    </div>
   </div>
   <div class="mobileView">
     <table class="userInfo">
@@ -15,7 +20,9 @@
         <td class="tableHeader">Rupees</td>
       </tr>
       <tr>
-        <td class="userData"><div [matTooltip]="name">{{name | slice:0:15}}</div></td>
+        <td class="userData">
+          <div [matTooltip]="name">{{name | slice:0:15}}</div>
+        </td>
         <td class="userData">{{timing}}</td>
         <td class="userData">{{persons}}</td>
         <td class="userData">{{rupee}} Rs</td>

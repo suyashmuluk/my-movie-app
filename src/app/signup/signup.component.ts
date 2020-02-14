@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signinForm = this.formbuilder.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPassword: ['', Validators.required],
     }, {
       validators: MustMatch('password', 'confirmPassword'),
@@ -47,7 +47,11 @@ export class SignupComponent implements OnInit {
         isInvalid: true,
       })
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home'], {
+        queryParams: {
+          username: this.signinForm.value.username
+        }
+      });
     }
   }
 }

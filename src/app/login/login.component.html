@@ -73,58 +73,58 @@
         <button type="submit" class="btn btn-success" [disabled]="!loginform.valid" routerLink="/home">Submit</button>
     </form>
 </div> -->
+<div class="bg">
+  <div class="container">
+    <div class="loginBox">
+      <div class="loginBox__avatar">
+        <i class="material-icons avatar">
+          person_outline
+        </i>
+      </div>
+      <form [formGroup]="loginform">
+        <div class="loginBox__error" *ngIf="loginform.errors">
+          Please fill all input fields
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" class="form-control" formControlName="uname" />
+          <div class="loginBox__error" *ngIf="formcontrols.uname.touched && formcontrols.uname.invalid">
+            <div *ngIf="formcontrols.uname.errors.required">
+              **Please enter Username
+            </div>
+            <div *ngIf="formcontrols.uname.errors.minlength">
+              **Username should be of atleast 5 characters
+            </div>
+            <div *ngIf="formcontrols.uname.errors.uname">
+              **Please enter proper Username
+            </div>
+          </div>
+        </div>
 
-<div class="container">
-  <div class="loginBox">
-    <!-- <h1 class="loginBox__title">Login</h1> -->
-    <div class="loginBox__avatar">
-      <i class="material-icons avatar">
-        person_outline
-      </i>
+        <div class="form-group" style="margin-top: 10%;">
+          <label for="password">Password</label>
+          <input type="{{ type }}" id="password" class="form-control" formControlName="password" />
+          <i class="material-icons eye" (click)="toggleTextType()">remove_red_eye</i>
+          <div class="loginBox__error" *ngIf="formcontrols.password.touched && formcontrols.password.invalid">
+            <div *ngIf="formcontrols.password.errors.required">
+              **Please enter passowrd
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-12 col-md-12 col-12 text-center">
+            <button class="btn btn-block loginBtn" (click)="submit()">
+              Login
+            </button>
+            <div style="margin: 20px 0 0">
+              <a routerLink="/signup">Don't have an account?</a>
+            </div>
+            <div>
+              <a href="#">Forgot Password?</a>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-    <form [formGroup]="loginform">
-      <div class="loginBox__error" *ngIf="loginform.errors">
-        Please fill all input fields
-      </div>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" class="form-control" formControlName="uname" />
-        <div class="loginBox__error" *ngIf="formcontrols.uname.touched && formcontrols.uname.invalid">
-          <div *ngIf="formcontrols.uname.errors.required">
-            **Please enter Username
-          </div>
-          <div *ngIf="formcontrols.uname.errors.minlength">
-            **Username should be of atleast 5 characters
-          </div>
-          <div *ngIf="formcontrols.uname.errors.uname">
-            **Please enter proper Username
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group" style="margin-top: 10%;">
-        <label for="password">Password</label>
-        <input type="{{ type }}" id="password" class="form-control" formControlName="password" />
-        <i class="material-icons eye" (click)="toggleTextType()">remove_red_eye</i>
-        <div class="loginBox__error" *ngIf="formcontrols.password.touched && formcontrols.password.invalid">
-          <div *ngIf="formcontrols.password.errors.required">
-            **Please enter passowrd
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-lg-12 col-md-12 col-12 text-center">
-          <button class="btn btn-block loginBtn" (click)="submit()">
-            Login
-          </button>
-          <div style="margin: 10px 0px">
-            <a routerLink="/signup">Don't have an account?</a>
-          </div>
-          <div>
-            <a href="#">Forgot Password?</a>
-          </div>
-        </div>
-      </div>
-    </form>
   </div>
 </div>

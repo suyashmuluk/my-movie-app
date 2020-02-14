@@ -2,8 +2,10 @@ body {
   background-color: #2b2b2b !important;
 }
 
-.username{
-  font-size: 30px;
+.username {
+  font-size: 50px;
+  word-spacing: 10px;
+  letter-spacing: 2px;
 }
 .movie__card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 1);
@@ -18,9 +20,10 @@ body {
   }
 
   &-body {
-    padding: 15px;
     background-color: #34495e;
     color: #dfe6e9;
+    transition: all 0.5s ease-in-out;
+    padding: 15px;
 
     &-title {
       font-weight: bold;
@@ -78,4 +81,12 @@ body {
 .aquaman {
   content: url("/assets/Images/aquaman.jpeg");
   height: 452px;
+}
+
+@media only screen and (max-width: 767px) {
+  .username {
+    font-size: 25px;
+    word-spacing: 5px;
+    letter-spacing: 1.4px;
+  }
 }

@@ -17,6 +17,7 @@ export class BookmovieComponent implements OnInit {
   movieImage: any;
   timeSelected: any;
   rupees = 250;
+  img: string;
 
 
 
@@ -29,6 +30,7 @@ export class BookmovieComponent implements OnInit {
       this.timings = JSON.parse(decodeURIComponent(this.route.snapshot.queryParamMap.get('timings')));
       this.timeSelected = this.timings[0];
       this.movieImage = this.route.snapshot.queryParamMap.get('image');
+      this.img = localStorage.getItem('imgData');
   }
 
   changeCount(op) {

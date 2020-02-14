@@ -22,10 +22,13 @@
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input [type]="show ? 'text' : 'password' " class="form-control" formControlName="password" />
+        <input [type]="show ? 'text' : 'password' " pattern="[a-zA-Z0-9]*" class="form-control" formControlName="password" />
         <i class="material-icons eye" (click)="toggleText('password')">remove_red_eye</i>
         <div class="errorMessage" *ngIf="f.password.touched && f.password.invalid">
           <div *ngIf="f.password.errors.required">Please enter password</div>
+          <div *ngIf="f.password.errors.minlength">
+            password should be atleast of 5 characters
+          </div>
         </div>
       </div>
       <div class="form-group">

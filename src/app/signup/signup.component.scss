@@ -1,7 +1,14 @@
+label {
+  color: #fff;
+  font-weight: normal;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
 .loginBox {
   width: 40%;
   margin: 15% auto 0;
-  background-color: #2c3e50;
+  background-color: #00748b;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,10 +22,11 @@
   //   text-align: center;
   // }
   &__avatar {
+    border: 3px solid #00748b;
     position: relative;
     text-align: center;
-    background-color: rgba(0, 139, 139);
-    color: #fff;
+    background-color: #9fffff;
+    color: #000;
     border-radius: 50%;
     height: 100px;
     width: 100px;
@@ -47,32 +55,34 @@ h1:nth-child(1) {
   letter-spacing: 2px;
   transition: all 0.6s;
   caret-color: rgba(0, 139, 139, 0.8);
+  font-size: 22px;
 }
 
 .form-control:focus {
   box-shadow: none;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid #1abc9c;
 }
 
 .form-control.ng-touched {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #e74c3c;
 }
 .form-control.ng-dirty.ng-invalid {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #e74c3c;
 }
 
 .form-control.ng-valid {
-  border-bottom: 2px solid #00cc00;
+  border-bottom: 2px solid #2ecc71;
 }
 
 .has-error input {
-  border-bottom: 2px solid red;
-  color: red;
+  border-bottom: 2px solid #e74c3c;
+  color: #e74c3c;
 }
 .eye {
   float: right;
   position: relative;
   bottom: 35px;
+  color: #fff;
 }
 
 .eye:hover {
@@ -82,17 +92,17 @@ h1:nth-child(1) {
 .loginBtn {
   letter-spacing: 2px;
   font-weight: 600;
-  background-color: rgba(0, 139, 139, 0.8);
+  background-color: #9fffff;
   letter-spacing: 2px;
   transition: all 0.4s;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
-  color: #fff;
+  color: #222f3e;
 }
 
 .loginBtn:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
+  color: #c8d6e5;
 }
 
 .loginBtn:focus {
@@ -109,6 +119,8 @@ a {
   font-size: 14.5px;
   color: #ecf0f1;
   transition-duration: 1s;
+  font-weight: normal;
+  letter-spacing: 1.4px;
 }
 
 input[type="password"] {

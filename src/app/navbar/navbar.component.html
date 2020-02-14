@@ -1,16 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" routerLink="/home">BookYourShow</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-            </ul> -->
+<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="routeUrl.includes('/login') || routeUrl.includes('/signup')? 'hide_nav' : ''">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">BookYourShow</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar__account">
+        <div class="profileImg" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
+        <i class="material-icons avatar" *ngIf="iconShow">
+          person_outline
+        </i>
+        <div class="navbar__accountDisplay">
+          <div class="navbar__accountDisplay-img">
+            <div class="profileImg" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
+            <i class="material-icons avatar" *ngIf="iconShow" >
+              person_outline
+            </i>
+          </div>
+          <div class="navbar__accountDisplay-imgBefore" (click)="fileInput.click()">
+            <form>
+              <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
+                (change)="imageUpload($event)" style="display: none;">
+              <i class="material-icons">
+                camera_enhance
+              </i>
+            </form>
+          </div>
+          <div class="navbar__accountDisplay-name">{{username | uppercase}}</div>
+          <div class="navbar__accountDisplay-manage">
+            Manage Your Account
+          </div>
+          <div class="navbar__accountDisplay-logout" (click) = logout()>Log Out</div>
         </div>
+      </div>
+
     </div>
+  </div>
 </nav>

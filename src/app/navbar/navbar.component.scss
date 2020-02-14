@@ -1,4 +1,109 @@
-.navbar{
-    background-color: #191919;
-    margin-bottom: 2%;
+.navbar {
+  background-color: #191919;
+  margin-bottom: 2%;
+}
+
+.navbar__account {
+  text-align: center;
+  background-color:#9fffff;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+
+  .avatar {
+    font-size: 40px;
+    position: relative;
+    top: -46px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.navbar__accountDisplay-img {
+  text-align: center;
+  background-color: #9fffff;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto 5px;
+  position: relative;
+
+  .avatar {
+    font-size: 40px;
+    position: relative;
+    top: -46px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.navbar__accountDisplay-imgBefore {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  right: 41%;
+  top: 31%;
+  &:hover {
+    cursor: pointer;
+  }
+  .customFileUpload{
+    content: "";
+  }
+}
+
+.navbar__accountDisplay {
+  visibility: hidden;
+  background-color: #fff;
+  color: #000;
+  width: 300px;
+  padding: 15px;
+  position: absolute;
+  right: 13%;
+  top: 60px;
+  box-shadow: 1px 1px 5px #8f8f8f;
+  border-radius: 8px;
+  z-index: 1;
+
+  &-name {
+    font-size: 15px;
+  }
+
+  &-manage {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-top: 10px;
+    position: relative;
+    top: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-logout {
+    margin-top: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.navbar__account:hover .navbar__accountDisplay {
+  visibility: visible;
+}
+.profileImg{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hide_nav{
+  display: none;
 }

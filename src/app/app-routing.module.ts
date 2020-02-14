@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DynamicImgComponent } from './dynamic-img/dynamic-img.component';
 import { AnimationComponent } from './animation/animation.component';
 import { SassDemoComponent } from './sass-demo/sass-demo.component';
+import { ClipPathComponent } from './clip-path/clip-path.component';
+
 
 
 
@@ -31,10 +33,10 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent},
   { path: 'bookmovie', component: BookmovieComponent },
   { path: 'bookings', component: BookingsComponent },
-  { path: 'navbar', component: NavbarComponent },
   { path: 'img', component: DynamicImgComponent },
   { path: 'anim', component: AnimationComponent },
   { path: 'sass', component: SassDemoComponent },
+  { path: 'clip', component: ClipPathComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
 ];
 

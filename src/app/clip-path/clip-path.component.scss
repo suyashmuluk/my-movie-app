@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+$bg-colors: (
+  primary: #3498db,
+  primary_lighten: lighten(#3498db, 40%),
+  primary_darken: darken(#3498db, 40%),
+  secondary: #2980b9
+);
+
+$weight: (
+  normal: 400,
+  medium: 500,
+  bold: 700
+);
+
+@function color ($color-name) {
+  @return map-get($bg-colors , $color-name)
+};
+
+@function weight ($font-weight) {
+  @return map-get($weight, $font-weight )
+}
+
+.bgColor {
+  clip-path: polygon(0 0, 100% 0, 31% 100%, 0% 100%);
+  background-color: color(primary_darken);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  .card{
+    width: 200px;
+    height: 200px;
+    background-color: color(secondary);
+    &__title {
+      font-weight: weight(bold);
+    }
+  }
+}
+

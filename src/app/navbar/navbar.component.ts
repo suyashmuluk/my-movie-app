@@ -1,3 +1,5 @@
+import { LocalstorageserviceService } from './../services/localstorageservice.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  username = '';
+  myfile: string;
+  imageContainer = [];
+  fileToUpload: File = null;
+  iconShow = true;
+  routeUrl: string;
 
-  ngOnInit() {
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private localstorage: LocalstorageserviceService) {
+    this.router.events.subscribe(() => this.routeUrl = this.router.url);
   }
 
+  ngOnInit() {
+    if (this.route.snapshot.queryParamMap.get('username')) {
+      this.username = this.route.snapshot.queryParamMap.get('username');
+    }
+  }
+
+  imageUpload(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.addEventListener('load', (event: any) => {
+        this.imageContainer = event.target.result;
+        console.log(this.imageContainer);
+        this.localstorage.store('imgData', this.imageContainer);
+        this.iconShow = false;
+      }, false);
+      reader.readAsDataURL(event.target.files[0]);
+    }
+    this.localstorage.get('imgData');
+  }
+
+  logout() {
+    console.log("logged out")
+    this.localstorage.remove('imgData');
+    this.imageContainer = [];
+  }
 }

@@ -24,6 +24,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from './../environments/environment';
 import { SassDemoComponent } from './sass-demo/sass-demo.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ClipPathComponent } from './clip-path/clip-path.component';
 
 
 
@@ -43,6 +44,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DynamicImgComponent,
     AnimationComponent,
     SassDemoComponent,
+    ClipPathComponent,
   ],
   imports: [
     BrowserModule,
