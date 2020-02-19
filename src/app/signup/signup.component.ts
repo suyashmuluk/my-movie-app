@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Route } from '@angular/compiler/src/core';
-import { MustMatch } from '../password/must-match.validator';
+import { MustMatch } from './username.validator';
 
 @Component({
   selector: 'app-signup',
