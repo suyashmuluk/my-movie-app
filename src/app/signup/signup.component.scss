@@ -56,6 +56,8 @@ h1:nth-child(1) {
   transition: all 0.6s;
   caret-color: rgba(0, 139, 139, 0.8);
   font-size: 22px;
+  padding: 0;
+  height: auto;
 }
 
 .form-control:focus {
@@ -111,7 +113,8 @@ h1:nth-child(1) {
 
 .errorMessage {
   margin-top: 1%;
-  color: #f22b2c;
+  color: #f44336;
+  font-size: 13px;
 }
 
 a {

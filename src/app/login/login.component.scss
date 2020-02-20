@@ -56,6 +56,8 @@ label {
   transition: all 0.6s;
   caret-color: rgba(0, 139, 139, 0.8);
   font-size: 22px;
+  padding: 0;
+  height: auto;
 }
 
 .form-control:focus {
@@ -81,6 +83,12 @@ input[type="password"] {
 .has-error input {
   border-bottom: 2px solid #e74c3c;
   color: #e74c3c;
+}
+
+.errorMessage {
+  margin-top: 1%;
+  color: #f44336;
+  font-size: 13px;
 }
 
 .eye {
