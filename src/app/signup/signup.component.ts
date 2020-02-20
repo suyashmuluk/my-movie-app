@@ -80,11 +80,7 @@ export class SignupComponent implements OnInit {
       };
       this.localstorage.store('userData', userData);
 
-      this.router.navigate(['/login'], {
-        queryParams: {
-          username: this.signinForm.value.username
-        }
-      });
+      this.router.navigate(['/login']);
     }
   }
 }

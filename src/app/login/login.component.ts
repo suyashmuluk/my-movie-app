@@ -15,18 +15,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginform: FormGroup;
-  names = ['ABC', 'XYZ'];
-  viewProfile = "name";
-  type = "password";
+  viewProfile = 'name';
+  type = 'password';
   show = false;
   eyeOpen = true;
   eyeClose = false;
-
-  courses = [
-    { 'id': 1, 'name': 'ABC' },
-    { 'id': 2, 'name': 'LMN' },
-    { 'id': 3, 'name': 'XYZ' }
-  ]
+  errorMessage = false;
 
   constructor(private formbuilder: FormBuilder,
     private router: Router, private localstorage: LocalstorageserviceService, private authservice: AuthService) { }
@@ -37,29 +31,19 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    if (this.authservice.isLoggedIn()) {
-      this.router.navigate(['/home'], {
-        queryParams:
-        {
-          username: JSON.parse(this.localstorage.get('userData')).username
-          // password: sha1(this.loginform.value.password)
-        }
-      });
-    }
+    // if (this.authservice.isLoggedIn()) {
+    //   this.router.navigate(['/home'], {
+    //     queryParams:
+    //     {
+    //       username: JSON.parse(this.localstorage.get('userData')).username
+    //     }
+    //   });
+    // }
   }
 
   get formcontrols() {
     return this.loginform.controls;
   }
-
-  // addCourse() {
-  //   this.courses.push({'id':4,'name' :'PQR'})
-  // }
-
-  // removeCourse(course){
-  //   let index = this.courses.indexOf(course);
-  //   this.courses.splice(index,1);
-  // }
 
   toggleTextType() {
     this.show = !this.show;
@@ -67,8 +51,7 @@ export class LoginComponent implements OnInit {
       this.type = 'text';
       this.eyeOpen = false;
       this.eyeClose = true;
-    }
-    else {
+    } else {
       this.type = 'password';
       this.eyeOpen = true;
       this.eyeClose = false;
@@ -82,15 +65,17 @@ export class LoginComponent implements OnInit {
         isInvalid: true
       });
     } else {
-
-      this.router.navigate(['/home'], {
-        queryParams:
-        {
-          username: this.loginform.value.uname,
-          // password: sha1(this.loginform.value.password)
-        }
-      });
-
+      // tslint:disable-next-line: max-line-length
+      if (JSON.parse(this.localstorage.get('userData')).username === this.loginform.value.uname && JSON.parse(this.localstorage.get('userData')).userpassword === this.loginform.value.password) {
+        this.router.navigate(['/home'], {
+          queryParams:
+          {
+            username: this.loginform.value.uname,
+          }
+        });
+      } else {
+        this.errorMessage = true;
+      }
     }
   }
 }
