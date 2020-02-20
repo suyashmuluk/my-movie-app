@@ -104,7 +104,9 @@
         <div class="form-group" style="margin-top: 10%;">
           <label for="password">Password</label>
           <input type="{{ type }}" id="password" class="form-control" formControlName="password" />
-          <i class="material-icons eye" (click)="toggleTextType()">remove_red_eye</i>
+          <img src="https://img.icons8.com/color/24/000000/visible.png" class="eye" *ngIf="eyeOpen"  (click)="toggleTextType()">
+          <img src="https://img.icons8.com/color/24/000000/invisible.png" class="eye" *ngIf="eyeClose"  (click) = "toggleTextType()">
+          <!-- <i class="material-icons eye" (click)="toggleTextType()">remove_red_eye</i> -->
           <div class="errorMessage" *ngIf="formcontrols.password.touched && formcontrols.password.invalid">
             <div *ngIf="formcontrols.password.errors.required">
               **Please enter passowrd

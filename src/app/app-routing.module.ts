@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomepageComponent},
+  { path: 'home', component: HomepageComponent, canActivate:[AuthGuard]},
   { path: 'bookmovie', component: BookmovieComponent },
   { path: 'bookings', component: BookingsComponent },
   { path: 'anim', component: AnimationComponent },

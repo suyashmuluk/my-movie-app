@@ -1,5 +1,5 @@
 .custom__navbar {
-  background-color: #F9F9F6;
+  background-color: #2c5163;
   color: #fbfbfb;
   height: 80px;
   display: flex;
@@ -11,10 +11,10 @@
   }
 
   &_logo {
-    color: #2b2b2b;
+    color: #f9f9f6;
     font-size: 30px;
     font-weight: bold;
-    font-family: 'Copse', serif;
+    font-family: "Copse", serif;
     &:hover {
       cursor: pointer;
     }
@@ -32,11 +32,70 @@
     box-shadow: 1px 1px 5px #8f8f8f;
     border-radius: 8px;
     z-index: 1;
+
+    &_image {
+      text-align: center;
+      background-color: #70cbf9;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      margin: 0 auto 5px;
+      position: relative;
+      &-selected {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      &-icon {
+        font-size: 45px;
+        position: absolute;
+        color: #f9f9f6;
+        top: 0;
+        left: 3px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &_formDiv {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: transparent;
+      bottom: 50%;
+      right: 40%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_manage {
+      border: 1px solid #dedede;
+      border-radius: 20px;
+      position: relative;
+      top: 9px;
+      padding-bottom: 8px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_logout {
+      margin-top: 8px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
   }
 
   &_profile {
     text-align: center;
-    background-color: #70CBF9;
+    background-color: #70cbf9;
     border-radius: 50%;
     height: 50px;
     width: 50px;
@@ -66,33 +125,9 @@
         cursor: pointer;
       }
     }
-
-    .change__profile_image {
-      text-align: center;
-      background-color: #70CBF9;
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
-      margin: 0 auto 5px;
-      position: relative;
-      &-selected {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-      &-icon {
-        font-size: 45px;
-        position: absolute;
-        color: #fff;
-        top: 0;
-        left: 2px;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
   }
+}
+
+.hide_nav {
+  display: none;
 }

@@ -5,7 +5,6 @@
         person_outline
       </i>
     </div>
-    <!-- <h1 class="loginBox__title">Signin</h1> -->
     <form [formGroup]="signinForm">
       <div class="errorMessage" *ngIf="signinForm.errors">
         Please fill all input fields
@@ -22,8 +21,11 @@
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input [type]="show ? 'text' : 'password' " pattern="[a-zA-Z0-9]*" class="form-control" formControlName="password" />
-        <i class="material-icons eye" (click)="toggleText('password')">remove_red_eye</i>
+        <input type="{{type}}" pattern="[a-zA-Z0-9]*" class="form-control" formControlName="password" />
+        <img src="https://img.icons8.com/color/24/000000/visible.png" class="eye" *ngIf="eyeOpen"
+          (click)="toggleText('password')">
+        <img src="https://img.icons8.com/color/24/000000/invisible.png" class="eye" *ngIf="eyeClose"
+          (click)="toggleText('password')">
         <div class="errorMessage" *ngIf="f.password.touched && f.password.invalid">
           <div *ngIf="f.password.errors.required">Please enter password</div>
           <div *ngIf="f.password.errors.minlength">
@@ -33,8 +35,11 @@
       </div>
       <div class="form-group">
         <label>Confirm Password</label>
-        <input [type]="showConfPass ? 'text' : 'password' " class="form-control" formControlName="confirmPassword" />
-        <i class="material-icons eye" (click)="toggleText('confpassword')">remove_red_eye</i>
+        <input type="{{conftype}}" class="form-control" formControlName="confirmPassword" />
+        <img src="https://img.icons8.com/color/24/000000/visible.png" class="eye" *ngIf="eyeOpenRepass"
+          (click)="toggleText('confpassword')">
+        <img src="https://img.icons8.com/color/24/000000/invisible.png" class="eye" *ngIf="eyeCloseRepass"
+          (click)="toggleText('confpassword')">
         <div class="errorMessage" *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid">
           <div *ngIf="f.confirmPassword.errors.required">
             Please confirm your password

@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if (this.route.snapshot.queryParamMap.get('username')) {
       this.username = this.route.snapshot.queryParamMap.get('username');
+      console.log(this.username);
     }
   }
 
@@ -43,8 +44,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    console.log("logged out")
-    this.localstorage.remove('imgData');
+    this.localstorage.remove('userData');
+    this.router.navigate(['login']);
     this.imageContainer = [];
   }
 }
