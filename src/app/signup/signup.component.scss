@@ -8,7 +8,7 @@ label {
 .loginBox {
   width: 40%;
   margin: 15% auto 0;
-  background-color: #00748b;
+  background-color: #F9F9F6;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,10 +22,10 @@ label {
   //   text-align: center;
   // }
   &__avatar {
-    border: 3px solid #00748b;
+    border: 3px solid #F9F9F6;
     position: relative;
     text-align: center;
-    background-color: #9fffff;
+    background-color: #F9F9F6;
     color: #000;
     border-radius: 50%;
     height: 100px;
@@ -94,7 +94,7 @@ h1:nth-child(1) {
 .loginBtn {
   letter-spacing: 2px;
   font-weight: 600;
-  background-color: #9fffff;
+  background-color: #F9F9F6;
   letter-spacing: 2px;
   transition: all 0.4s;
   transition-timing-function: ease-in-out;
