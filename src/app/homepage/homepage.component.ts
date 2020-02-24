@@ -1,10 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { trigger, state, style, transition, animate, stagger, query } from '@angular/animations';
+
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss']
+  styleUrls: ['./homepage.component.scss'],
+  animations: [
+    trigger('cardStagger', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0}),
+          stagger(1000, [animate('0.5s ease-in-out', style({opacity: 1}))])
+        ], {optional: true})
+      ])
+    ])
+  ]
 })
 export class HomepageComponent implements OnInit {
 

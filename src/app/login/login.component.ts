@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
             username: this.loginform.value.uname,
           }
         });
-      } else {
+      } else if(this.loginform.value.uname !== JSON.parse(this.localstorage.get('userData')).username && this.loginform.value.password !== JSON.parse(this.localstorage.get('userData')).userpassword) {
         this.errorMessage = true;
       }
     }

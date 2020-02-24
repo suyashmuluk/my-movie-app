@@ -1,6 +1,6 @@
 <div class="container">
   <span class="username">WELCOME {{username | uppercase}}</span>
-  <div class="row mt-2">
+  <div class="row mt-2" [@cardStagger] = "movies.length">
     <div class="col-lg-4 col-md-6 col-12  mb-5" *ngFor="let movie of movies">
       <div class="movie__card">
         <img class="movie__card-img-top" [ngClass]="movie.id">

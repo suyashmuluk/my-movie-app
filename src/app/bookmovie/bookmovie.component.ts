@@ -1,4 +1,3 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,7 +7,8 @@ import {Injectable, Pipe, PipeTransform} from '@angular/core';
 @Component({
   selector: 'app-bookmovie',
   templateUrl: './bookmovie.component.html',
-  styleUrls: ['./bookmovie.component.scss']
+  styleUrls: ['./bookmovie.component.scss'],
+
 })
 export class BookmovieComponent implements OnInit {
   persons = 1;
