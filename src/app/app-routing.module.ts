@@ -17,10 +17,10 @@ import { AnimationComponent } from './animation/animation.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomepageComponent, canActivate:[AuthGuard]},
+  { path: 'home', component: HomepageComponent},
   { path: 'bookmovie', component: BookmovieComponent },
   { path: 'bookings', component: BookingsComponent },
   { path: 'anim', component: AnimationComponent },

@@ -1,75 +1,36 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="routeUrl.includes('/login') || routeUrl.includes('/signup')? 'hide_nav' : ''">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/home">BookYourShow</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="navbar__account">
-        <div class="profileImg" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
-        <i class="material-icons avatar" *ngIf="iconShow">
-          person_outline
-        </i>
-        <div class="navbar__accountDisplay">
-          <div class="navbar__accountDisplay-img">
-            <div class="profileImg" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
-            <i class="material-icons avatar" *ngIf="iconShow" >
-              person_outline
-            </i>
-          </div>
-          <div class="navbar__accountDisplay-imgBefore" (click)="fileInput.click()">
-            <form>
-              <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
-                (change)="imageUpload($event)" style="display: none;">
-              <i class="material-icons">
-                camera_enhance
-              </i>
-            </form>
-          </div>
-          <div class="navbar__accountDisplay-name">{{username | uppercase}}</div>
-          <div class="navbar__accountDisplay-manage">
-            Manage Your Account
-          </div>
-          <div class="navbar__accountDisplay-logout" (click) = logout()>Log Out</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</nav> -->
-
 <div class="custom__navbar" [ngClass]="routeUrl.includes('/login') || routeUrl === '/signup' ? 'hide_nav' : ''">
   <div class="container">
-    <div class="custom__navbar_logo" routerlink = "/home">Book Your Show</div>
+    <div class="custom__navbar_logo" routerlink="/home">
+      <div>Movie Time</div>
+    </div>
     <div class="custom__navbar_profile">
       <div class="custom__navbar_profile_imgSelected" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
-        <i class="material-icons custom__navbar_profile_profileIcon" *ngIf="iconShow">
-          person_outline
-        </i>
-        <div class="change__profile">
-          <div class="change__profile_image">
-            <div class="change__profile_image-selected" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
-            <i class="material-icons change__profile_image-icon" *ngIf="iconShow" >
-              person_outline
-            </i>
-          </div>
-          <div>{{username}}</div>
-          <div class="change__profile_formDiv" (click)="fileInput.click()">
-            <form>
-              <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
-                (change)="imageUpload($event)" style="display: none;">
-              <i class="material-icons camera">
-                camera_enhance
-              </i>
-            </form>
-          </div>
-          <!-- <div class="navbar__accountDisplay-name">{{username | uppercase}}</div> -->
-          <div class="change__profile_manage">
-            Manage Your Account
-          </div>
-          <div class="change__profile_logout" (click) = logout()>Log Out</div>
+      <i class="material-icons custom__navbar_profile_profileIcon" *ngIf="iconShow">
+        person_outline
+      </i>
+      <div class="change__profile">
+        <div class="change__profile_image">
+          <div class="change__profile_image-selected" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
+          <i class="material-icons change__profile_image-icon" *ngIf="iconShow">
+            person_outline
+          </i>
         </div>
+        <div>{{username}}</div>
+        <div class="change__profile_formDiv" (click)="fileInput.click()">
+          <form>
+            <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
+              (change)="imageUpload($event)" style="display: none;">
+            <i class="material-icons camera">
+              camera_enhance
+            </i>
+          </form>
+        </div>
+        <!-- <div class="navbar__accountDisplay-name">{{username | uppercase}}</div> -->
+        <div class="change__profile_manage">
+          Manage Your Account
+        </div>
+        <div class="change__profile_logout" (click)=logout()>Log Out</div>
+      </div>
     </div>
   </div>
 </div>

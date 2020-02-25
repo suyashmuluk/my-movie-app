@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if (this.route.snapshot.queryParamMap.get('username')) {
       this.username = this.route.snapshot.queryParamMap.get('username');
-      console.log(this.username);
     }
   }
 

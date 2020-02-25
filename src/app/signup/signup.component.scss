@@ -2,6 +2,8 @@ label {
   font-weight: normal;
   letter-spacing: 2px;
   font-size: 20px;
+  color: #2b2b2b;
+
 }
 
 .loginBox {
@@ -24,7 +26,7 @@ label {
     border: 3px solid #F9F9F6;
     position: relative;
     text-align: center;
-    background-color: #70CBF9;
+    background-color: #34495e;
     color: #fff;
     border-radius: 50%;
     height: 100px;
@@ -92,12 +94,12 @@ h1:nth-child(1) {
 .loginBtn {
   letter-spacing: 2px;
   font-weight: 600;
-  background-color: #70CBF9;
+  background-color: #C70039ab;
   letter-spacing: 2px;
   transition: all 0.4s;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
-  color: #222f3e;
+  color: #f9f9f1;
 }
 
 .loginBtn:hover {
@@ -117,11 +119,9 @@ h1:nth-child(1) {
 
 a {
   text-decoration: none;
-  font-size: 14.5px;
-  color: #1883C8;
+  color: #34495e;
   transition-duration: 1s;
   font-weight: normal;
-  letter-spacing: 1.4px;
 }
 
 input[type="password"] {

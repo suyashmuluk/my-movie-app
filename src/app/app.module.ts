@@ -15,6 +15,7 @@ import { BookmovieComponent } from './bookmovie/bookmovie.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AnimationComponent } from './animation/animation.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -36,7 +37,8 @@ import { AnimationComponent } from './animation/animation.component';
     FormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

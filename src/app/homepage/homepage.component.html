@@ -6,7 +6,9 @@
         <img class="movie__card-img-top" [ngClass]="movie.id">
         <div class="movie__card-body">
             <h5 class="movie__card-body-title">{{movie.name}}</h5>
-            <button class="movie__card-body-button" (click)="bookMovie(movie)">Book Ticket</button>
+            <button mat-raised-button class="btn movie__card-body-button" (click)="bookMovie(movie)">
+              Book Ticket
+            </button>
         </div>
       </div>
     </div>

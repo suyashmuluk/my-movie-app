@@ -1,5 +1,9 @@
+.logo{
+  background-image: url('/src/assets/Images/logo.png');
+}
+
 .custom__navbar {
-  background-color: #2c5163;
+  background-color: #C70039ab;
   color: #fbfbfb;
   height: 80px;
   display: flex;
@@ -35,7 +39,7 @@
 
     &_image {
       text-align: center;
-      background-color: #70cbf9;
+      background-color: #34495e;
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -95,7 +99,7 @@
 
   &_profile {
     text-align: center;
-    background-color: #70cbf9;
+    background-color: #34495e;
     border-radius: 50%;
     height: 50px;
     width: 50px;

@@ -20,7 +20,7 @@
       <div class="subtitleText">Timings :</div>
       <div class="timingButtongroup">
         <div *ngFor="let timing of timings">
-          <div class="timingButton" [ngClass]="timeSelected === timing ? 'timeSelect' : 'timeUnselect' "
+          <div class="mat-button timingButton" [ngClass]="timeSelected === timing ? 'timeSelect' : 'timeUnselect' "
             (click)="timeselect(timing)">
             {{timing}}
           </div>
@@ -45,7 +45,7 @@
       <div class="cashDisplay">{{rupees}} Rs</div>
     </div>
     <div class="bookNowbuttonDiv text-center">
-      <button class="bookNowbutton" (click)="bookMovie('value')">Book Now</button>
+      <button class="mat-raised-button bookNowbutton" (click)="bookMovie('value')">Book Now</button>
     </div>
   </div>
 </div>
