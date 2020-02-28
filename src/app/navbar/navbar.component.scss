@@ -1,10 +1,27 @@
-.logo{
-  background-image: url('/src/assets/Images/logo.png');
+$colors: (
+  primary_color: #34495e,
+  secondary_color: #C70039ab,
+);
+
+@function colors($color_name) {
+  @return map-get($colors, $color_name);
+}
+
+$text_color: (
+  dark_color_text: #2b2b2b,
+  light_color_text: #f9f9f1
+);
+
+@function text-color($color_code){
+  @return map-get($text_color , $color_code )
+}
+
+.logo {
+  background-image: url("/src/assets/Images/logo.png");
 }
 
 .custom__navbar {
-  background-color: #C70039ab;
-  color: #fbfbfb;
+  background-color: colors(secondary_color);
   height: 80px;
   display: flex;
   align-items: center;
@@ -37,9 +54,15 @@
     border-radius: 8px;
     z-index: 1;
 
+    &-loginBtn:hover,
+    &-signinBtn:hover {
+      background-color: colors(secondary_color);
+      color: text-color(light_color_text);
+    }
+
     &_image {
       text-align: center;
-      background-color: #34495e;
+      background-color: colors(primary_color);
       border-radius: 50%;
       height: 50px;
       width: 50px;
@@ -70,11 +93,15 @@
       height: 25px;
       border-radius: 50%;
       position: absolute;
-      background-color: transparent;
-      bottom: 50%;
+      background-color: #dcdcdc;
+      top: 30%;
       right: 40%;
       &:hover {
         cursor: pointer;
+      }
+
+      .camera {
+        font-size: 20px;
       }
     }
 
@@ -89,9 +116,12 @@
       }
     }
 
+    &_bookings {
+    }
+
     &_logout {
       margin-top: 8px;
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
     }
@@ -99,7 +129,7 @@
 
   &_profile {
     text-align: center;
-    background-color: #34495e;
+    background-color: colors(primary_color);
     border-radius: 50%;
     height: 50px;
     width: 50px;

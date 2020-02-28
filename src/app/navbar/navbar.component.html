@@ -15,21 +15,34 @@
             person_outline
           </i>
         </div>
-        <div>{{username}}</div>
-        <div class="change__profile_formDiv" (click)="fileInput.click()">
+        <div *ngIf="isLoggedIn" class="change__profile_formDiv" (click)="fileInput.click()">
           <form>
             <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
               (change)="imageUpload($event)" style="display: none;">
-            <i class="material-icons camera">
+            <i class = "material-icons camera" *ngIf="isLoggedIn">
               camera_enhance
             </i>
           </form>
         </div>
-        <!-- <div class="navbar__accountDisplay-name">{{username | uppercase}}</div> -->
-        <div class="change__profile_manage">
+        <div class="change__profile_manage" *ngIf="isLoggedIn">
           Manage Your Account
         </div>
-        <div class="change__profile_logout" (click)=logout()>Log Out</div>
+        <!-- <div class="change_profile_booking" *ngIf="isLoggedIn" >
+          Go to Bookings
+        </div> -->
+        <div *ngIf="!isLoggedIn">
+          <button mat-raised-button class="change__profile-loginBtn" routerLink="/login">
+            Log in
+          </button>
+          <span style="font-size: 23px;
+          position: relative;
+          top: 2px;
+          left: 5px;"> / </span>
+          <button mat-raised-button class="change__profile-signinBtn ml-2" routerLink="/signup">
+            Sign up
+          </button>
+        </div>
+        <div class="change__profile_logout" *ngIf="isLoggedIn" (click)=logout()>Log Out</div>
       </div>
     </div>
   </div>

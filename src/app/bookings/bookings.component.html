@@ -6,22 +6,21 @@
       </div>
     </div>
   </div>
-  <div class="mobileView">
-    <table class="userInfo">
-      <tr>
-        <td class="tableHeader">Movie Name</td>
-        <td class="tableHeader">Timing</td>
-        <td class="tableHeader">Persons</td>
-        <td class="tableHeader">Rupees</td>
-      </tr>
-      <tr>
-        <td class="userData">
-          <div [matTooltip]="name">{{name | slice:0:15}}</div>
-        </td>
-        <td class="userData">{{timing}}</td>
-        <td class="userData">{{persons}}</td>
-        <td class="userData">{{rupee}} Rs</td>
-      </tr>
-    </table>
-  </div>
+
+  <table class="infoTable">
+    <tr>
+      <td class="infoTable_header">Movie Name</td>
+      <td class="infoTable_header">Timing</td>
+      <td class="infoTable_header">Persons</td>
+      <td class="infoTable_header">Rupees</td>
+    </tr>
+    <tr>
+      <td class="infoTable_data">
+        <div [matTooltip]="name">{{name | slice:0:15}}</div>
+      </td>
+      <td class="infoTable_data">{{timing}}</td>
+      <td class="infoTable_data">{{persons}}</td>
+      <td class="infoTable_data">{{rupee}} Rs</td>
+    </tr>
+  </table>
 </div>

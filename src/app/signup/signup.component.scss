@@ -1,15 +1,32 @@
+$colors: (
+  primary_color: #34495e,
+  secondary_color: #c70039ab
+);
+
+@function colors($color_name) {
+  @return map-get($colors, $color_name);
+}
+
+$text_color: (
+  dark_color_text: #2b2b2b,
+  light_color_text: #f9f9f1
+);
+
+@function text-color($color_code) {
+  @return map-get($text_color, $color_code);
+}
+
 label {
   font-weight: normal;
   letter-spacing: 2px;
   font-size: 20px;
-  color: #2b2b2b;
-
+  color: text-color(dark_color_text);
 }
 
 .loginBox {
   width: 40%;
   margin: 15% auto 0;
-  background-color: #F9F9F6;
+  background-color: text-color(light_color_text);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,10 +40,10 @@ label {
   //   text-align: center;
   // }
   &__avatar {
-    border: 3px solid #F9F9F6;
+    border: 3px solid text-color(light_color_text);
     position: relative;
     text-align: center;
-    background-color: #34495e;
+    background-color: colors(primary_color);
     color: #fff;
     border-radius: 50%;
     height: 100px;
@@ -47,7 +64,7 @@ h1:nth-child(1) {
 .form-control {
   background-color: transparent;
   border-bottom: 1px solid #dedede;
-  color: #2b2b2b;
+  color: text-color(dark_color_text);
   font-weight: bold;
   border-top: none;
   border-left: 0;
@@ -94,12 +111,12 @@ h1:nth-child(1) {
 .loginBtn {
   letter-spacing: 2px;
   font-weight: 600;
-  background-color: #C70039ab;
+  background-color: colors(secondary_color);
   letter-spacing: 2px;
   transition: all 0.4s;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
-  color: #f9f9f1;
+  color: text-color(light_color_text);
 }
 
 .loginBtn:hover {
@@ -119,7 +136,7 @@ h1:nth-child(1) {
 
 a {
   text-decoration: none;
-  color: #34495e;
+  color: colors(primary_color);
   transition-duration: 1s;
   font-weight: normal;
 }

@@ -1,3 +1,4 @@
+import { LocalstorageserviceService } from './../services/localstorageservice.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { trigger, state, style, transition, animate, stagger, query } from '@angular/animations';
@@ -11,9 +12,9 @@ import { trigger, state, style, transition, animate, stagger, query } from '@ang
     trigger('cardStagger', [
       transition('* => *', [
         query(':enter', [
-          style({ opacity: 0}),
-          stagger(1000, [animate('0.5s ease-in-out', style({opacity: 1}))])
-        ], {optional: true})
+          style({ opacity: 0 }),
+          stagger(1000, [animate('0.5s ease-in-out', style({ opacity: 1 }))])
+        ], { optional: true })
       ])
     ])
   ]
@@ -25,48 +26,51 @@ export class HomepageComponent implements OnInit {
     name: 'Shawshank Redemption',
     timings: ['10.00AM', '11.00AM', '13.00 PM', '17.00 PM', '20.00 PM'],
     image: '/assets/Images/shawshankPage.jpeg',
-  },{
+  }, {
     id: 'batman_superman',
     name: 'Batman vs Superman',
     timings: ['10.00AM', '11.00AM', '13.00PM'],
     image: '/assets/Images/batmanPage.jpeg'
-  },{
+  }, {
     id: 'avengers',
     name: 'Avengers Endgame',
     timings: ['10.00AM', '11.00AM', '13.00PM', '15.00PM'],
     image: '/assets/Images/avengersPage.jpeg'
-  },{
+  }, {
     id: 'harrypotter',
-    name: 'Harry Potter',
+    name: 'Harry potter and the goblet of fire',
     timings: ['7.00AM', '12.00PM', '14.00PM', '18.00PM'],
     image: '/assets/Images/harrypotterPage.jpeg'
-  },{
+  }, {
     id: 'aquaman',
     name: 'Aquaman',
     timings: ['12.00PM', '14.00PM'],
     image: '/assets/Images/aquamanPage.jpeg'
   }]
-  username =  '';
+  username = '';
 
   constructor(private router: Router,
-    private route: ActivatedRoute) {
-    this.username = this.route.snapshot.queryParamMap.get('username');
-
-
-    }
+    private route: ActivatedRoute,
+    private localstorage: LocalstorageserviceService) {
+  }
 
   ngOnInit() {
+    if (this.localstorage.get('userData')) {
+      this.username = JSON.parse(this.localstorage.get('userData')).username;
+    }
   }
 
 
 
   bookMovie(value) {
-    this.router.navigate(['/bookmovie'], { queryParams: {
-      id: value.id,
-      name: value.name,
-      timings: encodeURIComponent(JSON.stringify(value.timings)),
-      image: value.image
-    } });
+    this.router.navigate(['/bookmovie'], {
+      queryParams: {
+        id: value.id,
+        name: value.name,
+        timings: encodeURIComponent(JSON.stringify(value.timings)),
+        image: value.image
+      }
+    });
   }
 
 }

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { LocalstorageserviceService } from './../services/localstorageservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -16,15 +17,21 @@ export class NavbarComponent implements OnInit {
   iconShow = true;
   routeUrl: string;
 
+  isLoggedIn = false;
+
   constructor(private router: Router,
-    private route: ActivatedRoute,
-    private localstorage: LocalstorageserviceService) {
+              private route: ActivatedRoute,
+              private localstorage: LocalstorageserviceService,
+              private http: HttpClientModule) {
     this.router.events.subscribe(() => this.routeUrl = this.router.url);
   }
 
   ngOnInit() {
-    if (this.route.snapshot.queryParamMap.get('username')) {
-      this.username = this.route.snapshot.queryParamMap.get('username');
+    // tslint:disable-next-line: max-line-length
+    if (JSON.parse(this.localstorage.get('userData')) === null || JSON.parse(this.localstorage.get('userData')) === undefined || JSON.parse(this.localstorage.get('userData')) === '') {
+      this.isLoggedIn = false;
+    } else {
+      this.isLoggedIn = true;
     }
   }
 
@@ -33,7 +40,6 @@ export class NavbarComponent implements OnInit {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
         this.imageContainer = event.target.result;
-        console.log(this.imageContainer);
         this.localstorage.store('imgData', this.imageContainer);
         this.iconShow = false;
       }, false);
@@ -44,7 +50,9 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.localstorage.remove('userData');
-    this.router.navigate(['login']);
-    this.imageContainer = [];
+    this.localstorage.remove('movieData');
+    this.localstorage.remove('imgData');
+    this.router.navigate(['home']);
+    this.isLoggedIn = false;
   }
 }

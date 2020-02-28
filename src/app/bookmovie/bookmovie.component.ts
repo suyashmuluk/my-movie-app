@@ -1,8 +1,9 @@
+import { LocalstorageserviceService } from './../services/localstorageservice.service';
 import { Component, OnInit } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {Injectable, Pipe, PipeTransform} from '@angular/core';
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-bookmovie',
@@ -22,15 +23,16 @@ export class BookmovieComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private _snackBar: MatSnackBar) { }
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private localstorage: LocalstorageserviceService) { }
 
   ngOnInit() {
-      this.movieName = this.route.snapshot.queryParamMap.get('name');
-      this.timings = JSON.parse(decodeURIComponent(this.route.snapshot.queryParamMap.get('timings')));
-      this.timeSelected = this.timings[0];
-      this.movieImage = this.route.snapshot.queryParamMap.get('image');
-      this.img = localStorage.getItem('imgData');
+    this.movieName = this.route.snapshot.queryParamMap.get('name');
+    this.timings = JSON.parse(decodeURIComponent(this.route.snapshot.queryParamMap.get('timings')));
+    this.timeSelected = this.timings[0];
+    this.movieImage = this.route.snapshot.queryParamMap.get('image');
+    this.img = localStorage.getItem('imgData');
   }
 
   changeCount(op) {
@@ -51,11 +53,28 @@ export class BookmovieComponent implements OnInit {
   }
 
   bookMovie(value) {
-    const successRef = this._snackBar.open(this.movieName + "is booked" + " for " + this.timeSelected + " for " + this.persons + " persons ", 'ok', {
-      duration: 2000,
-    });
-    successRef.afterDismissed().subscribe(data => {
-      this.router.navigate(['/bookings'], { queryParams: { name: this.movieName, time: this.timeSelected, person: this.persons, rupee: this.rupees } });
-    });
+    this.localstorage.get('userData');
+    if (this.localstorage.get('userData') === null) {
+      const successRef = this.snackBar.open("We couldn't identify you. Please sign up.", "OK", {
+        duration: 2000,
+      })
+      this.router.navigate(['signup']);
+    } else {
+      // tslint:disable-next-line: max-line-length
+      const successRef = this.snackBar.open(this.movieName + 'is booked' + ' for ' + this.timeSelected + ' for ' + this.persons + ' persons ', 'ok', {
+        duration: 2000,
+      });
+      successRef.afterDismissed().subscribe(data => {
+        // tslint:disable-next-line: max-line-length
+        this.router.navigate(['/bookings'], { queryParams: { name: this.movieName, time: this.timeSelected, person: this.persons, rupee: this.rupees } });
+      });
+      const movieData = {
+        moviename: this.movieName,
+        movietime: this.timeSelected,
+        persons: this.persons,
+        rupee: this.rupees
+      }
+      this.localstorage.store('movieData', movieData);
+    }
   }
 }

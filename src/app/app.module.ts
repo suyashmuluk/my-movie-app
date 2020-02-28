@@ -16,6 +16,8 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AnimationComponent } from './animation/animation.component';
 import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -38,7 +40,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

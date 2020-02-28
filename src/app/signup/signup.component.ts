@@ -12,8 +12,8 @@ import { MustMatch } from './username.validator';
 export class SignupComponent implements OnInit {
 
   signinForm: FormGroup;
-  type = "password";
-  conftype = "password";
+  type = 'password';
+  conftype = 'password';
   show = false;
   showConfPass = false;
   eyeOpen = true;
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   eyeCloseRepass = false
 
   constructor(private formbuilder: FormBuilder,
-    private router: Router, private localstorage: LocalstorageserviceService) { }
+              private router: Router, private localstorage: LocalstorageserviceService) { }
 
   ngOnInit() {
     this.signinForm = this.formbuilder.group({
@@ -42,26 +42,23 @@ export class SignupComponent implements OnInit {
     if (value === 'password') {
       this.show = !this.show;
       if (this.show) {
-        this.type = "text";
+        this.type = 'text';
         this.eyeOpen = false;
         this.eyeClose = true;
-        console.log("i am clicked")
-      }
-      else {
-        this.type = "password";
+        console.log('i am clicked')
+      } else {
+        this.type = 'password';
         this.eyeOpen = true;
         this.eyeClose = false;
-
       }
     } else if (value === 'confpassword') {
       this.showConfPass = !this.showConfPass;
       if (this.showConfPass) {
-        this.conftype = "text";
+        this.conftype = 'text';
         this.eyeOpenRepass = false;
         this.eyeCloseRepass = true;
-      }
-      else {
-        this.conftype = "password";
+      } else {
+        this.conftype = 'password';
         this.eyeOpenRepass = true;
         this.eyeCloseRepass = false;
       }
@@ -79,7 +76,6 @@ export class SignupComponent implements OnInit {
         userpassword: this.signinForm.value.password
       };
       this.localstorage.store('userData', userData);
-
       this.router.navigate(['/login']);
     }
   }
