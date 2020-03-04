@@ -1,0 +1,116 @@
+$color: (
+  primary_color: #34495e,
+  secondary_color: #c70039ab
+);
+
+@function getColors($color_name) {
+  @return map-get($color, $color_name);
+}
+
+$text_color: (
+  dark_color_text: #2b2b2b,
+  light_color_text: #f9f9f1
+);
+
+@function text-color($color_code) {
+  @return map-get($text_color, $color_code);
+}
+
+@mixin labelStyle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dialog {
+  &__title {
+    background-color: getColors(secondary_color);
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: text-color(light_color_text);
+    padding: 0 5px 10px;
+  }
+
+  &__container {
+    padding: 10px 20px;
+
+    &_title {
+      @include labelStyle;
+    }
+    &_title-hover {
+      @include labelStyle;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &_changeBtn {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto 0;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: getColors(secondary_color);
+      color: text-color(light_color_text);
+    }
+  }
+}
+
+.form-control {
+  background-color: transparent;
+  border-bottom: 1px solid #dedede;
+  font-weight: bold;
+  border-top: none;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  letter-spacing: 2px;
+  transition: all 0.6s;
+  caret-color: rgba(0, 139, 139, 0.8);
+  font-size: 22px;
+  padding: 0;
+  height: auto;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-bottom: 2px solid #1abc9c;
+}
+
+.form-control.ng-touched {
+  border-bottom: 2px solid #e74c3c;
+}
+.form-control.ng-dirty.ng-invalid {
+  border-bottom: 2px solid #e74c3c;
+}
+
+.form-control.ng-valid {
+  border-bottom: 2px solid #2ecc71;
+}
+
+input[type="password"] {
+  letter-spacing: 10px;
+}
+
+.has-error input {
+  border-bottom: 2px solid #e74c3c;
+  color: #e74c3c;
+}
+
+.eye {
+  float: right;
+  position: relative;
+  bottom: 35px;
+}
+
+.eye:hover {
+  cursor: pointer;
+}
+
+.errorMessage {
+  margin-top: 1%;
+  color: #f44336;
+  font-size: 13px;
+}

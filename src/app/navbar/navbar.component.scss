@@ -60,6 +60,10 @@ $text_color: (
       color: text-color(light_color_text);
     }
 
+    &_name {
+      font-weight: bold;
+    }
+
     &_image {
       text-align: center;
       background-color: colors(primary_color);
@@ -114,9 +118,6 @@ $text_color: (
       &:hover {
         cursor: pointer;
       }
-    }
-
-    &_bookings {
     }
 
     &_logout {

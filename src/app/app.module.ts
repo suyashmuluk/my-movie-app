@@ -15,9 +15,10 @@ import { BookmovieComponent } from './bookmovie/bookmovie.component';
 import { BookingsComponent } from './bookings/bookings.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AnimationComponent } from './animation/animation.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 
@@ -31,6 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     BookingsComponent,
     NavbarComponent,
     AnimationComponent,
+    DialogComponent,
+  ],
+  entryComponents: [
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSnackBarModule,
     MatTooltipModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 <div class="custom__navbar" [ngClass]="routeUrl.includes('/login') || routeUrl === '/signup' ? 'hide_nav' : ''">
   <div class="container">
-    <div class="custom__navbar_logo" routerlink="/home">
-      <div>Movie Time</div>
+    <div class="custom__navbar_logo">
+      <div routerlink="/home">Movie Time</div>
     </div>
     <div class="custom__navbar_profile">
       <div class="custom__navbar_profile_imgSelected" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
@@ -24,7 +24,10 @@
             </i>
           </form>
         </div>
-        <div class="change__profile_manage" *ngIf="isLoggedIn">
+        <div class="change__profile_name">
+          {{username |titlecase}}
+        </div>
+        <div class="change__profile_manage" *ngIf="isLoggedIn" (click)="manageAccount()" >
           Manage Your Account
         </div>
         <!-- <div class="change_profile_booking" *ngIf="isLoggedIn" >

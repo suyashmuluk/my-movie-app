@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       });
     } else {
       // tslint:disable-next-line: max-line-length
-      if (JSON.parse(this.localstorage.get('userData')).username === this.loginform.value.uname && JSON.parse(this.localstorage.get('userData')).userpassword === this.loginform.value.password) {
+      if (JSON.parse(this.localstorage.get('userData')).username === this.loginform.value.uname && JSON.parse(this.localstorage.get('userData')).password === this.loginform.value.password) {
         this.router.navigate(['/home'], {
           queryParams:
           {
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
           }
         });
         // tslint:disable-next-line: max-line-length
-      } else if (this.loginform.value.uname !== JSON.parse(this.localstorage.get('userData')).username && this.loginform.value.password !== JSON.parse(this.localstorage.get('userData')).userpassword) {
+      } else if (this.loginform.value.uname !== JSON.parse(this.localstorage.get('userData')).username && this.loginform.value.password !== JSON.parse(this.localstorage.get('userData')).password) {
         this.errorMessage = true;
       }
     }

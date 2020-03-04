@@ -1,0 +1,61 @@
+<div class="dialog">
+  <div class="dialog__title">
+    <span> Manage Account</span>
+  </div>
+  <div class="dialog__container">
+    <form [formGroup]="changeCredentialsForm">
+      <div class="errorMessage" *ngIf= "showErrorMsg"> Your old password is not correct.</div>
+      <span class="dialog__container_title">Change Username</span>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="oldUsername">
+        <div *ngIf="formControls.oldUsername.touched && formControls.oldUsername.invalid">
+          <div class="errorMessage" *ngIf="formControls.oldUsername.errors.required">
+            please enter your new username
+          </div>
+          <div class="errorMessage" *ngIf="formControls.oldUsername.errors.minlength">
+            Username must be of atleast 5 characters
+          </div>
+        </div>
+      </div>
+      <span class="dialog__container_title-hover" (click)="showPasswordBox()">Change Password</span>
+      <img src="https://img.icons8.com/color/20/000000/box-important--v1.png">
+      <div [@updown]="passwordBox ? 'expanded' : 'collapsed'">
+        <div class="form-group">
+          <label>Type your current Password</label>
+          <input type="{{type}}" class="form-control" formControlName="oldPassword">
+          <img src="https://img.icons8.com/color/24/000000/visible.png" class="eye" *ngIf="eyeOpen"
+            (click)="toggleText('password')">
+          <img src="https://img.icons8.com/color/24/000000/invisible.png" class="eye" *ngIf="eyeClose"
+            (click)="toggleText('password')">
+          <div *ngIf="formControls.oldPassword.touched && formControls.oldPassword.invalid">
+            <div class="errorMessage" *ngIf="formControls.oldPassword.errors.required">
+              please enter your old password
+            </div>
+            <div class="errorMessage" *ngIf="formControls.oldPassword.errors.minlength">
+              password must be of atleast 5 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Type your new Password</label>
+          <input type="{{conftype}}" class="form-control" formControlName="newPassword">
+          <img src="https://img.icons8.com/color/24/000000/visible.png" class="eye" *ngIf="eyeOpenRepass"
+            (click)="toggleText('confpassword')">
+          <img src="https://img.icons8.com/color/24/000000/invisible.png" class="eye" *ngIf="eyeCloseRepass"
+            (click)="toggleText('confpassword')">
+          <div *ngIf="formControls.newPassword.touched && formControls.newPassword.invalid">
+            <div *ngIf="formControls.newPassword.errors.required">
+              please enter your new password
+            </div>
+            <div *ngIf="formControls.newPassword.errors.minlength">
+              password must be of atleast 5 characters
+            </div>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button class="btn-block dialog__container_changeBtn" (click)="changeUserCredential()">
+        Save changes
+      </button>
+    </form>
+  </div>
+</div>

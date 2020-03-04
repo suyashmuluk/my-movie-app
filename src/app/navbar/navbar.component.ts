@@ -1,7 +1,9 @@
+import { DialogComponent } from './../dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalstorageserviceService } from './../services/localstorageservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
@@ -22,16 +24,24 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private localstorage: LocalstorageserviceService,
-              private http: HttpClientModule) {
+              private http: HttpClientModule,
+              private dialog: MatDialog) {
     this.router.events.subscribe(() => this.routeUrl = this.router.url);
   }
 
   ngOnInit() {
-    // tslint:disable-next-line: max-line-length
     if (JSON.parse(this.localstorage.get('userData')) === null || JSON.parse(this.localstorage.get('userData')) === undefined || JSON.parse(this.localstorage.get('userData')) === '') {
       this.isLoggedIn = false;
     } else {
       this.isLoggedIn = true;
+    }
+
+    this.getUername();
+  }
+
+  getUername() {
+    if(JSON.parse(this.localstorage.get('userData')).username) {
+      this.username = JSON.parse(this.localstorage.get('userData')).username;
     }
   }
 
@@ -46,6 +56,15 @@ export class NavbarComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
     this.localstorage.get('imgData');
+  }
+
+  manageAccount() {
+    const dialogRfr = this.dialog.open(DialogComponent, {
+      width: '75%',
+    });
+    dialogRfr.afterClosed().subscribe(result => {
+      console.log('closed');
+    });
   }
 
   logout() {

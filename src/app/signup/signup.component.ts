@@ -45,7 +45,6 @@ export class SignupComponent implements OnInit {
         this.type = 'text';
         this.eyeOpen = false;
         this.eyeClose = true;
-        console.log('i am clicked')
       } else {
         this.type = 'password';
         this.eyeOpen = true;
@@ -73,7 +72,7 @@ export class SignupComponent implements OnInit {
     } else {
       const userData = {
         username: this.signinForm.value.username,
-        userpassword: this.signinForm.value.password
+        password: this.signinForm.value.password
       };
       this.localstorage.store('userData', userData);
       this.router.navigate(['/login']);
