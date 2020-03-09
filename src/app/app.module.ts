@@ -1,3 +1,5 @@
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -47,7 +50,9 @@ import { DialogComponent } from './dialog/dialog.component';
     MatTooltipModule,
     MatButtonModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,16 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
-    apiKey: 'AIzaSyDoURABBMKKFTV9KMHp351C6eGk0Qt6Vr8',
-    authDomain: 'absolute-hook-165314.firebaseapp.com',
-    databaseURL: 'https://absolute-hook-165314.firebaseio.com',
-    projectId: 'absolute-hook-165314',
-    storageBucket: 'absolute-hook-165314.appspot.com',
-    messagingSenderId: '589775136774',
-    appId: '1:589775136774:web:9dd9beefaee7aef6c43b87',
-    measurementId: 'G-5DKJQPJSSM'
+    apiKey: 'AIzaSyAidVk6GURoztXq1NBt58Jo0CQvRp9uxGE',
+    authDomain: 'movie-time-e8c59.firebaseapp.com',
+    databaseURL: 'https://movie-time-e8c59.firebaseio.com',
+    projectId: 'movie-time-e8c59',
+    storageBucket: 'movie-time-e8c59.appspot.com',
+    messagingSenderId: '268935645752',
+    appId: '1:268935645752:web:36c2e815d9af0ba6a5b4cd',
+    measurementId: 'G-062M5B98HK'
   }
 };
 

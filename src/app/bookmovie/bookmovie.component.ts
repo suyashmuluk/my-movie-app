@@ -31,7 +31,7 @@ export class BookmovieComponent implements OnInit {
     this.movieName = this.route.snapshot.queryParamMap.get('name');
     this.timings = JSON.parse(decodeURIComponent(this.route.snapshot.queryParamMap.get('timings')));
     this.timeSelected = this.timings[0];
-    this.movieImage = this.route.snapshot.queryParamMap.get('image');
+    // this.movieImage = this.route.snapshot.queryParamMap.get('image');
     this.img = localStorage.getItem('imgData');
   }
 
