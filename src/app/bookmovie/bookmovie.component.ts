@@ -15,7 +15,6 @@ export class BookmovieComponent implements OnInit {
   persons = 1;
   movieName = '';
   timings: any;
-  movieImage: any;
   timeSelected: any;
   rupees = 250;
   img: string;
@@ -31,8 +30,7 @@ export class BookmovieComponent implements OnInit {
     this.movieName = this.route.snapshot.queryParamMap.get('name');
     this.timings = JSON.parse(decodeURIComponent(this.route.snapshot.queryParamMap.get('timings')));
     this.timeSelected = this.timings[0];
-    // this.movieImage = this.route.snapshot.queryParamMap.get('image');
-    this.img = localStorage.getItem('imgData');
+    this.img = this.route.snapshot.queryParamMap.get('image');
   }
 
   changeCount(op) {
@@ -61,7 +59,7 @@ export class BookmovieComponent implements OnInit {
       this.router.navigate(['signup']);
     } else {
       // tslint:disable-next-line: max-line-length
-      const successRef = this.snackBar.open(this.movieName + 'is booked' + ' for ' + this.timeSelected + ' for ' + this.persons + ' persons ', 'ok', {
+      const successRef = this.snackBar.open(this.movieName + 'is booked' + ' for ' + this.timeSelected + ' for ' + this.persons + ' persons ', 'OK', {
         duration: 2000,
       });
       successRef.afterDismissed().subscribe(data => {
