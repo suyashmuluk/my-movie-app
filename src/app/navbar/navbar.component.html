@@ -3,6 +3,19 @@
     <div class="custom__navbar_logo">
       <div routerlink="/home">Movie Time</div>
     </div>
+    <div class="custom__navbar_list">
+      <div class="custom__navbar_list-items">Home</div>
+      <div class="custom__navbar_list-items">About</div>
+      <div class="custom__navbar_list-items">Contact</div>
+    </div>
+    <div class="custom__navbar_hamburger" (click)="openMobileMenuItems()">
+      <i class="material-icons navbarIconsForMobile" *ngIf="!mobileMenuItems">
+        menu
+      </i>
+      <i class="material-icons navbarIconsForMobile" *ngIf="mobileMenuItems">
+        close
+      </i>
+    </div>
     <div class="custom__navbar_profile">
       <div class="custom__navbar_profile_imgSelected" [style.backgroundImage]="'url('+ imageContainer +')'"></div>
       <i class="material-icons custom__navbar_profile_profileIcon" *ngIf="iconShow">
@@ -19,16 +32,18 @@
           <form>
             <input type="file" accept="image/*" #fileInput (click)="fileInput.value = null"
               (change)="imageUpload($event)" style="display: none;">
-            <i class = "material-icons camera" *ngIf="isLoggedIn">
+            <i class="material-icons camera" *ngIf="isLoggedIn">
               camera_enhance
             </i>
           </form>
         </div>
-        <div class="change__profile_name">
-          {{username |titlecase}}
-        </div>
-        <div class="change__profile_manage" *ngIf="isLoggedIn" (click)="manageAccount()" >
-          Manage Your Account
+        <div *ngIf="isLoggedIn">
+          <div class="change__profile_name">
+            {{username |titlecase}}
+          </div>
+          <div class="change__profile_manage" (click)="manageAccount()">
+            Manage Your Account
+          </div>
         </div>
         <!-- <div class="change_profile_booking" *ngIf="isLoggedIn" >
           Go to Bookings
@@ -49,4 +64,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="navbar__list_phone" [@expandCollapse]="mobileMenuItems? 'expanded' : 'collapsed'">
+  <div class="navbar__list_phone-items">Home</div>
+  <div class="navbar__list_phone-items">About</div>
+  <div class="navbar__list_phone-items">Contact</div>
 </div>

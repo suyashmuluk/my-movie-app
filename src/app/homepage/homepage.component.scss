@@ -1,6 +1,14 @@
+@mixin for_size($size) {
+  @if $size == phone {
+    @media only screen and (max-width: 767px) and (min-width: 320px) {
+      @content;
+    }
+  }
+}
+
 $colors: (
   primary_color: #34495e,
-  secondary_color: #C70039ab,
+  secondary_color: #c70039ab,
   text_color: #f9f9f1
 );
 
@@ -12,6 +20,11 @@ $colors: (
   font-size: 50px;
   text-transform: lowercase;
   color: #fff;
+  @include for_size(phone) {
+    font-size: 25px;
+    word-spacing: 5px;
+    letter-spacing: 1.4px;
+  }
 }
 .movie__card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 1);
@@ -84,12 +97,4 @@ $colors: (
 .aquaman {
   content: url("/assets/Images/aquaman.jpeg");
   height: 452px;
-}
-
-@media only screen and (max-width: 767px) {
-  .username {
-    font-size: 25px;
-    word-spacing: 5px;
-    letter-spacing: 1.4px;
-  }
 }

@@ -22,9 +22,9 @@ export class BookmovieComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private localstorage: LocalstorageserviceService) { }
+              private router: Router,
+              private snackBar: MatSnackBar,
+              private localstorage: LocalstorageserviceService) { }
 
   ngOnInit() {
     this.movieName = this.route.snapshot.queryParamMap.get('name');
@@ -36,7 +36,6 @@ export class BookmovieComponent implements OnInit {
   changeCount(op) {
     if (op === '-') {
       if (this.persons > 1) {
-        console.log('increase')
         this.persons -= 1;
         this.rupees -= 250;
       }
@@ -46,16 +45,25 @@ export class BookmovieComponent implements OnInit {
     }
   }
 
-  timeselect(time, i) {
+  timeselect(time) {
     this.timeSelected = time;
   }
 
   bookMovie(value) {
     this.localstorage.get('userData');
+    const movieData = {
+      moviename: this.movieName,
+      movietime: this.timeSelected,
+      persons: this.persons,
+      rupee: this.rupees,
+      image: value.movie_flex
+    };
+    this.localstorage.store('movieData', movieData);
+
     if (this.localstorage.get('userData') === null) {
-      const successRef = this.snackBar.open("We couldn't identify you. Please sign up.", "OK", {
+      const successRef = this.snackBar.open('We couldn\'t identify you. Please sign up.', 'OK', {
         duration: 2000,
-      })
+      });
       this.router.navigate(['signup']);
     } else {
       // tslint:disable-next-line: max-line-length
@@ -66,13 +74,6 @@ export class BookmovieComponent implements OnInit {
         // tslint:disable-next-line: max-line-length
         this.router.navigate(['/bookings'], { queryParams: { name: this.movieName, time: this.timeSelected, person: this.persons, rupee: this.rupees } });
       });
-      const movieData = {
-        moviename: this.movieName,
-        movietime: this.timeSelected,
-        persons: this.persons,
-        rupee: this.rupees
-      }
-      this.localstorage.store('movieData', movieData);
     }
   }
 }

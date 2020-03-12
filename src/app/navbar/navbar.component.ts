@@ -4,11 +4,34 @@ import { LocalstorageserviceService } from './../services/localstorageservice.se
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { trigger, state, style, transition, animate, group } from '@angular/animations'
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  animations: [
+    trigger('expandCollapse', [
+      state('collapsed', style({
+        transform: 'translateX(-1000px)'
+      })),
+      transition('collapsed => expanded', [
+        animate('500ms cubic-bezier(.38,.38,.65,.64)', style({
+          transform: 'translateX(0px)'
+        }))
+      ]),
+      transition('expanded => collapsed', [
+        group([
+          animate('400ms cubic-bezier(.38,.38,.65,.64)', style({
+            opacity: 0,
+          })),
+          animate('400ms cubic-bezier(.38,.38,.65,.64)', style({
+            transform: 'translateX(-1000px)'
+          }))
+        ])
+      ])
+    ])
+  ]
 })
 export class NavbarComponent implements OnInit {
 
@@ -18,14 +41,14 @@ export class NavbarComponent implements OnInit {
   fileToUpload: File = null;
   iconShow = true;
   routeUrl: string;
-
-  isLoggedIn = false;
+  isLoggedIn: any;
+  mobileMenuItems = false;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private localstorage: LocalstorageserviceService,
-              private http: HttpClientModule,
-              private dialog: MatDialog) {
+    private route: ActivatedRoute,
+    private localstorage: LocalstorageserviceService,
+    private http: HttpClientModule,
+    private dialog: MatDialog) {
     this.router.events.subscribe(() => this.routeUrl = this.router.url);
   }
 
@@ -40,7 +63,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getUername() {
-    if(JSON.parse(this.localstorage.get('userData')).username) {
+    if (JSON.parse(this.localstorage.get('userData')).username) {
       this.username = JSON.parse(this.localstorage.get('userData')).username;
     }
   }
@@ -73,5 +96,9 @@ export class NavbarComponent implements OnInit {
     this.localstorage.remove('imgData');
     this.router.navigate(['home']);
     this.isLoggedIn = false;
+  }
+
+  openMobileMenuItems() {
+    this.mobileMenuItems = !this.mobileMenuItems
   }
 }
