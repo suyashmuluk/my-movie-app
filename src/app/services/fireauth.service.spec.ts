@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ImgService } from './img.service';
+import { FireauthService } from './fireauth.service';
 
-describe('ImgService', () => {
+describe('FireauthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ImgService = TestBed.get(ImgService);
+    const service: FireauthService = TestBed.get(FireauthService);
     expect(service).toBeTruthy();
   });
 });
